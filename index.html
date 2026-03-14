@@ -3,23 +3,35 @@
 <head>
 <title>Learn with Mishka</title>
 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
 
 body{
 margin:0;
-font-family:Arial;
-background:#f4f6f8;
+font-family:Arial, sans-serif;
+background:#f4f6fb;
+color:#333;
 }
 
 header{
-background:#2c3e50;
+background:linear-gradient(135deg,#4facfe,#00f2fe);
 color:white;
 text-align:center;
-padding:60px;
+padding:80px 20px;
+}
+
+header h1{
+font-size:42px;
+margin:0;
+}
+
+header p{
+font-size:18px;
 }
 
 nav{
-background:#34495e;
+background:#2c3e50;
 padding:15px;
 text-align:center;
 }
@@ -33,30 +45,45 @@ font-size:18px;
 
 .hero{
 text-align:center;
-padding:60px;
+padding:60px 20px;
 }
 
 .hero button{
-background:#3498db;
+background:#4facfe;
 border:none;
-padding:15px 25px;
+padding:15px 30px;
 color:white;
 font-size:18px;
-border-radius:5px;
+border-radius:30px;
+cursor:pointer;
 }
 
 .container{
 max-width:1000px;
 margin:auto;
-padding:40px;
+padding:40px 20px;
 }
 
 .card{
 background:white;
 padding:25px;
-margin:20px 0;
-border-radius:10px;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+margin:25px 0;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card h2{
+color:#2c3e50;
+}
+
+.lessons{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.contact{
+text-align:center;
 }
 
 footer{
@@ -67,61 +94,103 @@ padding:20px;
 margin-top:40px;
 }
 
+@media(max-width:700px){
+.lessons{
+grid-template-columns:1fr;
+}
+}
+
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <h1>Learn with Mishka</h1>
+
 <p>English & Hindi lessons for Russian students</p>
+
 <p>Учите английский и хинди легко</p>
+
 </header>
 
 <nav>
+
 <a href="#">Home</a>
-<a href="#">English Lessons</a>
-<a href="#">Hindi Lessons</a>
-<a href="#">Contact</a>
+<a href="#english">English</a>
+<a href="#hindi">Hindi</a>
+<a href="#contact">Contact</a>
+
 </nav>
 
 <div class="hero">
+
 <h2>Learn Languages Easily</h2>
-<p>Simple English and Hindi lessons designed for Russian students.</p>
+
+<p>Simple lessons designed especially for Russian students</p>
+
 <button>Start Learning</button>
+
 </div>
 
 <div class="container">
 
 <div class="card">
+
 <h2>About the Teacher</h2>
-<p>Hello! My name is Aman. I help Russian students learn English and Hindi with simple lessons and conversation practice.</p>
+
+<p>Hello! My name is Aman.</p>
+
+<p>I help Russian students learn English and Hindi with simple lessons and conversation practice.</p>
+
 </div>
 
-<div class="card">
+<div class="lessons">
+
+<div class="card" id="english">
+
 <h2>English Basics</h2>
+
 <p>Hello = Здравствуйте</p>
+
 <p>How are you? = Как дела?</p>
+
 <p>Thank you = Спасибо</p>
+
 </div>
 
-<div class="card">
+<div class="card" id="hindi">
+
 <h2>Hindi Basics</h2>
+
 <p>नमस्ते (Namaste) = Hello</p>
+
 <p>धन्यवाद = Thank you</p>
+
 <p>आप कैसे हैं? = How are you?</p>
+
 </div>
 
-<div class="card">
+</div>
+
+<div class="card contact" id="contact">
+
 <h2>Contact</h2>
+
 <p>Email: your-email@example.com</p>
+
 <p>Telegram: @yourtelegram</p>
+
 </div>
 
 </div>
 
 <footer>
-<p>© 2026 Learn with Mishka</p>
+
+<p>© Learn with Mishka</p>
+
 </footer>
 
 </body>
