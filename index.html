@@ -1,197 +1,814 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Learn with Mishka</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Learn English Online with Mishka — Professional English lessons for Russian speakers. 500₽ per lesson. Free trial available."/>
+  <title>Learn English Online with Mishka — Aman Bedi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    /* ── TOKENS ── */
+    :root {
+      --cream:   #F5EFE6;
+      --peach:   #FADDD7;
+      --navy:    #1A1F3C;
+      --navy2:   #232849;
+      --ink:     #1A1F3C;
+      --coral:   #F0605A;
+      --coral2:  #E8524C;
+      --teal:    #3ABFBF;
+      --gold:    #F5C842;
+      --white:   #FFFFFF;
+      --offwhite:#FAFAF8;
+      --muted:   #6B7280;
+      --border:  #E5E7EB;
+      --shadow:  0 4px 24px rgba(26,31,60,0.10);
+      --shadow-lg: 0 12px 48px rgba(26,31,60,0.16);
+    }
 
-<style>
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
 
-body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#f4f6fb;
-color:#333;
-}
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; } .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; } .d4 { transition-delay: .4s; }
 
-header{
-background:linear-gradient(135deg,#4facfe,#00f2fe);
-color:white;
-text-align:center;
-padding:80px 20px;
-}
+    /* ══════════ NAVBAR ══════════ */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(245,239,230,0.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 2px solid var(--gold);
+      transition: box-shadow .3s;
+    }
+    #nav.scrolled { box-shadow: var(--shadow); }
+    .nav-wrap {
+      max-width: 1200px; margin: 0 auto; padding: 0 5vw;
+      display: flex; justify-content: space-between; align-items: center;
+      height: 66px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.45rem; font-weight: 900;
+      color: var(--ink); text-decoration: none;
+      display: flex; align-items: center; gap: 0.3rem;
+    }
+    .nav-logo .star { color: var(--coral); font-style: normal; }
+    .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: .9rem; font-weight: 700;
+      color: var(--ink); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-book {
+      background: var(--coral); color: var(--white) !important;
+      padding: .55rem 1.5rem; border-radius: 50px;
+      font-weight: 800 !important; font-size: .88rem !important;
+      transition: background .2s, transform .15s !important;
+      box-shadow: 0 4px 16px rgba(240,96,90,0.35);
+    }
+    .nav-book:hover { background: var(--coral2) !important; transform: translateY(-1px); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: .3s; }
 
-header h1{
-font-size:42px;
-margin:0;
-}
+    /* ══════════ HERO ══════════ */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #F5EFE6 0%, #FADDD7 40%, #FDE8D2 70%, #F9D9C8 100%);
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 3rem;
+      padding: 100px 5vw 5rem;
+      max-width: 1200px; margin: 0 auto;
+      position: relative;
+    }
+    /* Full-width hero bg */
+    .hero-bg {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
+      background: linear-gradient(135deg, #F5EFE6 0%, #FADDD7 40%, #FDE8D2 70%, #F9D9C8 100%);
+    }
+    .hero-section-wrap {
+      background: linear-gradient(135deg, #F5EFE6 0%, #FADDD7 40%, #FDE8D2 70%, #F9D9C8 100%);
+      min-height: 100vh; padding-top: 66px;
+    }
 
-header p{
-font-size:18px;
-}
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      background: var(--ink); color: var(--white);
+      padding: .4rem 1rem; border-radius: 50px;
+      font-size: .78rem; font-weight: 700; letter-spacing: .04em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+      font-weight: 900; line-height: 1.05;
+      margin-bottom: 1.5rem; color: var(--ink);
+    }
+    .hero-title .w-english { color: var(--coral); }
+    .hero-title .w-conf { color: var(--teal); }
+    .hero-sub {
+      font-size: 1.05rem; color: #4B4B6B;
+      line-height: 1.8; max-width: 500px; margin-bottom: 2.25rem;
+    }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+    .btn-coral {
+      background: var(--coral); color: var(--white);
+      padding: .85rem 2rem; border-radius: 50px;
+      font-weight: 800; font-size: .95rem; border: none; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      box-shadow: 0 6px 20px rgba(240,96,90,0.4);
+      transition: transform .15s, background .2s;
+    }
+    .btn-coral:hover { background: var(--coral2); transform: translateY(-2px); }
+    .btn-ghost-dark {
+      background: transparent; color: var(--ink);
+      padding: .85rem 2rem; border-radius: 50px;
+      font-weight: 700; font-size: .95rem;
+      border: 2px solid var(--ink); cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: background .2s, color .2s;
+    }
+    .btn-ghost-dark:hover { background: var(--ink); color: var(--white); }
 
-nav{
-background:#2c3e50;
-padding:15px;
-text-align:center;
-}
+    .hero-stats {
+      display: flex; gap: 2rem; flex-wrap: wrap;
+      padding-top: 1.75rem; border-top: 1.5px solid rgba(26,31,60,0.12);
+    }
+    .hstat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900; color: var(--ink); line-height: 1;
+    }
+    .hstat-label { font-size: .72rem; color: #6B6B8B; text-transform: uppercase; letter-spacing: .07em; margin-top: .18rem; }
 
-nav a{
-color:white;
-margin:15px;
-text-decoration:none;
-font-size:18px;
-}
+    /* Hero right card */
+    .hero-right { display: flex; justify-content: center; align-items: center; }
+    .hero-phone-card {
+      background: var(--white);
+      border: 2.5px solid var(--ink); border-radius: 20px;
+      padding: 2rem; width: 300px;
+      box-shadow: 8px 8px 0 var(--ink);
+      position: relative;
+    }
+    .phone-avatar {
+      width: 80px; height: 80px; border-radius: 50%;
+      background: linear-gradient(135deg, #F5C842 0%, #F0605A 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem; margin-bottom: 1rem;
+      border: 3px solid var(--ink);
+    }
+    .phone-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900; margin-bottom: .2rem; }
+    .phone-role { font-size: .8rem; color: var(--muted); margin-bottom: 1.25rem; font-weight: 600; }
+    .phone-tag {
+      display: inline-block; background: var(--teal); color: var(--white);
+      padding: .3rem .8rem; border-radius: 50px;
+      font-size: .72rem; font-weight: 800; letter-spacing: .04em;
+      margin-bottom: 1rem;
+    }
+    .phone-price-row {
+      display: flex; align-items: baseline; gap: .4rem; margin-bottom: 1rem;
+    }
+    .phone-price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--coral); }
+    .phone-per { font-size: .8rem; color: var(--muted); font-weight: 600; }
+    .phone-free {
+      background: var(--gold); color: var(--ink);
+      padding: .55rem 1rem; border-radius: 50px; border: 2px solid var(--ink);
+      font-size: .82rem; font-weight: 800; width: 100%; text-align: center;
+      cursor: pointer; text-decoration: none; display: block;
+      transition: transform .15s;
+    }
+    .phone-free:hover { transform: scale(1.02); }
+    .card-float-badge {
+      position: absolute; top: -14px; right: -14px;
+      background: var(--coral); color: var(--white);
+      border: 2px solid var(--ink); border-radius: 50px;
+      padding: .35rem .85rem; font-size: .72rem; font-weight: 800;
+      animation: bob 2.5s ease-in-out infinite;
+    }
+    @keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-5px)} }
 
-.hero{
-text-align:center;
-padding:60px 20px;
-}
+    /* ══════════ ABOUT (DARK) ══════════ */
+    #about {
+      background: var(--navy);
+      padding: 6rem 0;
+    }
+    .about-wrap {
+      max-width: 1200px; margin: 0 auto; padding: 0 5vw;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+    }
+    .about-pill {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--teal); color: var(--white);
+      padding: .35rem 1rem; border-radius: 50px;
+      font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 900;
+      color: var(--white); line-height: 1.15; margin-bottom: 1.25rem;
+    }
+    .about-body { font-size: 1rem; color: rgba(255,255,255,.68); line-height: 1.85; margin-bottom: 1rem; }
+    .about-body .hl { color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .about-cta-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+    .btn-teal {
+      background: var(--teal); color: var(--white);
+      padding: .8rem 2rem; border-radius: 50px;
+      font-weight: 800; font-size: .9rem; border: none; cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: opacity .2s, transform .15s;
+    }
+    .btn-teal:hover { opacity: .88; transform: translateY(-2px); }
+    .btn-ghost-white {
+      background: transparent; color: rgba(255,255,255,.7);
+      padding: .8rem 2rem; border-radius: 50px;
+      font-weight: 700; font-size: .9rem;
+      border: 2px solid rgba(255,255,255,.3); cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: border-color .2s, color .2s;
+    }
+    .btn-ghost-white:hover { border-color: var(--white); color: var(--white); }
 
-.hero button{
-background:#4facfe;
-border:none;
-padding:15px 30px;
-color:white;
-font-size:18px;
-border-radius:30px;
-cursor:pointer;
-}
+    /* About cards grid */
+    .about-cards {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .acard {
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px; padding: 1.4rem;
+      transition: background .2s;
+    }
+    .acard:hover { background: rgba(255,255,255,.11); }
+    .acard-icon { font-size: 1.8rem; margin-bottom: .65rem; }
+    .acard-title { font-size: .95rem; font-weight: 800; color: var(--white); margin-bottom: .3rem; }
+    .acard-desc { font-size: .8rem; color: rgba(255,255,255,.5); line-height: 1.6; }
 
-.container{
-max-width:1000px;
-margin:auto;
-padding:40px 20px;
-}
+    /* ══════════ SERVICES ══════════ */
+    #services {
+      background: var(--cream); padding: 6rem 0;
+    }
+    .section-wrap { max-width: 1200px; margin: 0 auto; padding: 0 5vw; }
+    .section-pill {
+      display: inline-block; background: var(--coral); color: var(--white);
+      padding: .35rem 1.25rem; border-radius: 50px;
+      font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 900;
+      color: var(--ink); text-align: center; margin-bottom: .75rem;
+    }
+    .section-sub { font-size: 1rem; color: var(--muted); text-align: center; max-width: 540px; margin: 0 auto 3.5rem; line-height: 1.75; }
+    .section-header { text-align: center; }
 
-.card{
-background:white;
-padding:25px;
-margin:25px 0;
-border-radius:12px;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    }
+    .scard {
+      background: var(--white);
+      border: 2.5px solid var(--ink); border-radius: 20px;
+      padding: 2rem; position: relative; overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .scard:hover { transform: translateY(-5px); box-shadow: 6px 6px 0 var(--ink); }
+    .scard-top-bar {
+      position: absolute; top: 0; left: 0; right: 0; height: 4px; border-radius: 20px 20px 0 0;
+    }
+    .bar-red { background: var(--coral); }
+    .bar-teal { background: var(--teal); }
+    .bar-gold { background: var(--gold); }
+    .bar-purple { background: #9B59B6; }
+    .bar-pink { background: #E91E8C; }
+    .bar-green { background: #27AE60; }
+    .scard-emoji { font-size: 2.2rem; margin-bottom: .85rem; margin-top: .5rem; display: block; }
+    .scard-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 900; margin-bottom: .6rem; color: var(--ink);
+    }
+    .scard-desc { font-size: .85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.25rem; }
+    .scard-price { font-size: 1.05rem; font-weight: 800; color: var(--coral); margin-bottom: .75rem; }
+    .scard-badge {
+      display: inline-block; background: var(--gold); color: var(--ink);
+      padding: .28rem .85rem; border-radius: 50px;
+      font-size: .72rem; font-weight: 800;
+    }
 
-.card h2{
-color:#2c3e50;
-}
+    /* ══════════ REVIEWS ══════════ */
+    #reviews { background: var(--offwhite); padding: 6rem 0; }
+    .reviews-pill {
+      display: inline-block; background: var(--teal); color: var(--white);
+      padding: .35rem 1.25rem; border-radius: 50px;
+      font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .rcard {
+      background: var(--white);
+      border: 2px solid var(--ink); border-radius: 20px;
+      padding: 1.75rem;
+      box-shadow: 4px 4px 0 var(--ink);
+      transition: transform .2s;
+    }
+    .rcard:hover { transform: translateY(-3px); }
+    .rcard-stars { color: var(--gold); font-size: 1rem; letter-spacing: .1em; margin-bottom: .85rem; }
+    .rcard-text {
+      font-size: .9rem; color: var(--ink); line-height: 1.75;
+      font-style: italic; margin-bottom: 1.25rem;
+    }
+    .rcard-divider { height: 1px; background: var(--border); margin-bottom: 1rem; }
+    .rcard-author { display: flex; align-items: center; gap: .75rem; }
+    .rcard-av {
+      width: 38px; height: 38px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .8rem; font-weight: 800; color: var(--white);
+      border: 2px solid var(--ink); flex-shrink: 0;
+    }
+    .rcard-name { font-size: .875rem; font-weight: 800; color: var(--ink); }
+    .rcard-info { font-size: .75rem; color: var(--muted); }
 
-.lessons{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
+    /* ══════════ CONTACT (DARK) ══════════ */
+    #contact { background: var(--navy); padding: 6rem 0; }
+    .contact-wrap {
+      max-width: 1200px; margin: 0 auto; padding: 0 5vw;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4rem; align-items: start;
+    }
+    .contact-left {}
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem); font-weight: 900;
+      color: var(--white); line-height: 1.2; margin-bottom: 1rem;
+    }
+    .contact-sub { font-size: .95rem; color: rgba(255,255,255,.55); line-height: 1.8; margin-bottom: 2rem; }
+    .contact-methods { display: flex; flex-direction: column; gap: 1rem; }
+    .cmethod {
+      display: flex; align-items: center; gap: 1rem;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 14px; padding: 1rem 1.25rem;
+      text-decoration: none; transition: background .2s;
+    }
+    .cmethod:hover { background: rgba(255,255,255,.12); }
+    .cmethod-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: rgba(255,255,255,.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .cmethod-label { font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.4); display: block; margin-bottom: .15rem; }
+    .cmethod-value { font-size: .95rem; font-weight: 700; color: var(--white); }
 
-.contact{
-text-align:center;
-}
+    /* Form */
+    .contact-form {
+      background: var(--white); border-radius: 20px;
+      padding: 2.25rem; border: 2.5px solid rgba(255,255,255,.15);
+    }
+    .form-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 900; color: var(--ink);
+      margin-bottom: 1.5rem; display: flex; align-items: center; gap: .5rem;
+    }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+    .fg { display: flex; flex-direction: column; gap: .35rem; margin-bottom: 1rem; }
+    .fg:last-of-type { margin-bottom: 0; }
+    .fl { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: #4B5563; }
+    .fi, .fsel, .fta {
+      background: #F9FAFB; border: 1.5px solid var(--border);
+      color: var(--ink); padding: .8rem 1rem; border-radius: 10px;
+      font-family: 'Nunito', sans-serif; font-size: .9rem;
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .fi:focus, .fsel:focus, .fta:focus {
+      border-color: var(--teal); box-shadow: 0 0 0 3px rgba(58,191,191,.15);
+    }
+    .fi::placeholder, .fta::placeholder { color: #9CA3AF; }
+    .fsel { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-color: #F9FAFB; }
+    .fta { resize: vertical; min-height: 110px; }
+    .btn-submit {
+      width: 100%; background: var(--coral); color: var(--white);
+      padding: 1rem; border-radius: 50px; border: none; cursor: pointer;
+      font-family: 'Nunito', sans-serif; font-size: 1rem; font-weight: 800;
+      margin-top: 1.25rem; display: flex; align-items: center; justify-content: center; gap: .5rem;
+      box-shadow: 0 6px 20px rgba(240,96,90,0.35);
+      transition: background .2s, transform .15s;
+    }
+    .btn-submit:hover { background: var(--coral2); transform: translateY(-1px); }
+    .form-success {
+      display: none; background: #ECFDF5; border: 1.5px solid #10B981;
+      border-radius: 10px; padding: 1rem; color: #065F46;
+      font-size: .9rem; font-weight: 700; margin-top: 1rem; text-align: center;
+    }
 
-footer{
-background:#2c3e50;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
-}
+    /* ══════════ FOOTER ══════════ */
+    footer {
+      background: #12172E; padding: 2.5rem 0 1.5rem;
+      border-top: 2px solid rgba(255,255,255,.07);
+    }
+    .footer-wrap {
+      max-width: 1200px; margin: 0 auto; padding: 0 5vw;
+      display: flex; flex-direction: column; gap: 1.5rem;
+    }
+    .footer-top {
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900;
+      color: var(--white); text-decoration: none;
+    }
+    .footer-logo .star { color: var(--coral); }
+    .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+    .footer-links a { font-size: .82rem; color: rgba(255,255,255,.45); text-decoration: none; font-weight: 600; transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+    .footer-bottom { text-align: center; font-size: .78rem; color: rgba(255,255,255,.3); padding-top: 1.25rem; border-top: 1px solid rgba(255,255,255,.07); }
 
-@media(max-width:700px){
-.lessons{
-grid-template-columns:1fr;
-}
-}
+    /* Mobile menu */
+    .mobile-menu {
+      display: none; position: fixed; inset: 0; z-index: 998;
+      background: var(--cream); padding: 6rem 5vw 2rem;
+      flex-direction: column; gap: 1.5rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a { font-size: 1.6rem; font-family: 'Playfair Display', serif; font-weight: 900; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--border); padding-bottom: 1rem; }
 
-</style>
-
+    /* ══════════ RESPONSIVE ══════════ */
+    @media (max-width: 960px) {
+      #hero { grid-template-columns: 1fr; padding-top: 110px; }
+      .hero-right { display: none; }
+      .about-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .frow { grid-template-columns: 1fr; }
+      .about-cards { grid-template-columns: 1fr; }
+      #hero { padding: 100px 5vw 3rem; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#contact" onclick="closeMobile()" style="color:var(--coral);">Book a Lesson →</a>
+</div>
 
-<h1>Learn with Mishka</h1>
-
-<p>English & Hindi lessons for Russian students</p>
-
-<p>Учите английский и хинди легко</p>
-
-</header>
-
-<nav>
-
-<a href="#">Home</a>
-<a href="#english">English</a>
-<a href="#hindi">Hindi</a>
-<a href="#contact">Contact</a>
-
+<!-- NAVBAR -->
+<nav id="nav">
+  <div class="nav-wrap">
+    <a href="#" class="nav-logo">Learn<i class="star">★</i>Mishka</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#contact" class="nav-book">Book a Lesson</a></li>
+    </ul>
+    <button class="hamburger" onclick="toggleMobile()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
-<div class="hero">
-
-<h2>Learn Languages Easily</h2>
-
-<p>Simple lessons designed especially for Russian students</p>
-
-<button>Start Learning</button>
-
+<!-- HERO -->
+<div class="hero-section-wrap">
+  <div id="hero">
+    <div class="hero-left">
+      <div class="hero-badge reveal">🇬🇧 Английский онлайн</div>
+      <h1 class="hero-title reveal d1">
+        Speak <span class="w-english">English</span><br>
+        with<br>
+        <span class="w-conf">Confidence</span>
+      </h1>
+      <p class="hero-sub reveal d2">
+        Professional English lessons tailored for Russian speakers — from beginners to advanced. Learn with <strong>Mishka (Aman Bedi)</strong> and start speaking from your very first lesson.
+      </p>
+      <div class="hero-btns reveal d3">
+        <a href="#contact" class="btn-coral">🎁 Free Trial Lesson</a>
+        <a href="#services" class="btn-ghost-dark">View Courses</a>
+      </div>
+      <div class="hero-stats reveal d4">
+        <div>
+          <div class="hstat-num">500 ₽</div>
+          <div class="hstat-label">Per lesson</div>
+        </div>
+        <div style="width:1px;background:rgba(26,31,60,.15);"></div>
+        <div>
+          <div class="hstat-num">5</div>
+          <div class="hstat-label">Years experience</div>
+        </div>
+        <div style="width:1px;background:rgba(26,31,60,.15);"></div>
+        <div>
+          <div class="hstat-num">1st</div>
+          <div class="hstat-label">Lesson free</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right reveal d2">
+      <div class="hero-phone-card">
+        <div class="card-float-badge">🟢 Open for bookings</div>
+        <div class="phone-avatar">👩‍🏫</div>
+        <div class="phone-name">Mishka</div>
+        <div class="phone-role">Aman Bedi · English Teacher</div>
+        <div class="phone-tag">🇷🇺 → 🇬🇧 Для русских</div>
+        <div class="phone-price-row">
+          <div class="phone-price">500₽</div>
+          <div class="phone-per">/ 60 min lesson</div>
+        </div>
+        <a href="#contact" class="phone-free">🎁 Book Free Trial</a>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="container">
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-wrap">
+    <div>
+      <div class="about-pill reveal">ABOUT ME • ОБО МНЕ</div>
+      <h2 class="about-title reveal d1">Passionate<br>English Teacher</h2>
+      <p class="about-body reveal d2">
+        I've dedicated <strong style="color:var(--white);">5+ years</strong> to helping Russian students unlock the English language — building real fluency, not just grammar rules.
+      </p>
+      <p class="about-body reveal d2">
+        My teaching approach combines <span class="hl">modern communicative methods</span> with a deep understanding of the challenges Russian speakers face. From pronunciation to idiomatic expressions, I'll guide you every step of the way.
+      </p>
+      <div class="about-cta-row reveal d3">
+        <a href="#contact" class="btn-coral">Book Free Lesson</a>
+        <a href="https://t.me/learnWithMishka" target="_blank" class="btn-ghost-white">💬 Telegram</a>
+      </div>
+    </div>
+    <div class="about-cards reveal d2">
+      <div class="acard">
+        <div class="acard-icon">🎯</div>
+        <div class="acard-title">Goal-Oriented</div>
+        <div class="acard-desc">Lessons tailored to your specific goals — career, travel, exams, or everyday conversation.</div>
+      </div>
+      <div class="acard">
+        <div class="acard-icon">🧠</div>
+        <div class="acard-title">Smart Method</div>
+        <div class="acard-desc">Science-backed teaching techniques that make English stick in your memory faster.</div>
+      </div>
+      <div class="acard">
+        <div class="acard-icon">💬</div>
+        <div class="acard-title">Real Speaking</div>
+        <div class="acard-desc">Focus on actual conversations from lesson one — no boring drills, just real English.</div>
+      </div>
+      <div class="acard">
+        <div class="acard-icon">🗓️</div>
+        <div class="acard-title">Flexible Schedule</div>
+        <div class="acard-desc">Book lessons at times that work for you. Mon–Sat, 9AM – 8PM Moscow time.</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<div class="card">
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="section-pill">WHAT I OFFER • МОИ УСЛУГИ</div>
+      <h2 class="section-title">Choose Your<br>Learning Path</h2>
+      <p class="section-sub">From your very first word to confident professional communication — I have a programme for every stage.</p>
+    </div>
+    <div class="services-grid">
+      <div class="scard reveal">
+        <div class="scard-top-bar bar-red"></div>
+        <span class="scard-emoji">🌱</span>
+        <div class="scard-title">Beginner English</div>
+        <p class="scard-desc">Start from zero! Learn the alphabet, basic vocabulary, essential phrases, and build your confidence in a fun, stress-free way.</p>
+        <div class="scard-price">500 ₽ / lesson</div>
+        <span class="scard-badge">A1 – A2</span>
+      </div>
+      <div class="scard reveal d1">
+        <div class="scard-top-bar bar-teal"></div>
+        <span class="scard-emoji">💼</span>
+        <div class="scard-title">Conversational English</div>
+        <p class="scard-desc">Build real fluency for daily life — travel, socialising, and expressing yourself naturally without hesitation.</p>
+        <div class="scard-price">500 ₽ / lesson</div>
+        <span class="scard-badge">B1 – B2</span>
+      </div>
+      <div class="scard reveal d2">
+        <div class="scard-top-bar bar-gold"></div>
+        <span class="scard-emoji">🎓</span>
+        <div class="scard-title">IELTS / TOEFL Prep</div>
+        <p class="scard-desc">Strategic exam preparation with practice tests, scoring tips, and intensive skill training to hit your target band score.</p>
+        <div class="scard-price">500 ₽ / lesson</div>
+        <span class="scard-badge">Exam Focused</span>
+      </div>
+      <div class="scard reveal d1">
+        <div class="scard-top-bar bar-purple"></div>
+        <span class="scard-emoji">🗣️</span>
+        <div class="scard-title">Speaking Club</div>
+        <p class="scard-desc">Small group sessions to practice real conversation, overcome speaking anxiety, and improve your fluency naturally.</p>
+        <div class="scard-price">500 ₽ / session</div>
+        <span class="scard-badge">Group</span>
+      </div>
+      <div class="scard reveal d2">
+        <div class="scard-top-bar bar-pink"></div>
+        <span class="scard-emoji">👦</span>
+        <div class="scard-title">Kids English</div>
+        <p class="scard-desc">Engaging, play-based lessons designed for children aged 5–12 using songs, games, and stories to make learning delightful.</p>
+        <div class="scard-price">500 ₽ / lesson</div>
+        <span class="scard-badge">Ages 5–12</span>
+      </div>
+      <div class="scard reveal d3">
+        <div class="scard-top-bar bar-green"></div>
+        <span class="scard-emoji">✍️</span>
+        <div class="scard-title">Writing & Grammar</div>
+        <p class="scard-desc">Master the structure of English — essays, reports, storytelling, and grammar rules explained clearly with Russian context.</p>
+        <div class="scard-price">500 ₽ / lesson</div>
+        <span class="scard-badge">All Levels</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h2>About the Teacher</h2>
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-wrap">
+    <div class="section-header reveal">
+      <div class="reviews-pill">REVIEWS • ОТЗЫВЫ</div>
+      <h2 class="section-title">What My Students Say</h2>
+      <p class="section-sub">Real feedback from real students who transformed their English.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="rcard reveal">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"After 6 months with Mishka, I passed my IELTS with band 7.5! Her exam techniques are brilliant and she always made me feel capable. Огромное спасибо!"</p>
+        <div class="rcard-divider"></div>
+        <div class="rcard-author">
+          <div class="rcard-av" style="background:var(--coral);">АП</div>
+          <div><div class="rcard-name">Алексей П.</div><div class="rcard-info">Москва · IELTS 7.5</div></div>
+        </div>
+      </div>
+      <div class="rcard reveal d1">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"I was terrified to speak English at work. Now I lead meetings in English every week! Mishka's speaking club changed everything for me."</p>
+        <div class="rcard-divider"></div>
+        <div class="rcard-author">
+          <div class="rcard-av" style="background:var(--teal);">МС</div>
+          <div><div class="rcard-name">Мария С.</div><div class="rcard-info">Санкт-Петербург · Business English</div></div>
+        </div>
+      </div>
+      <div class="rcard reveal d2">
+        <div class="rcard-stars">★★★★★</div>
+        <p class="rcard-text">"My daughter (8 years old) loves her lessons! She sings English songs around the house. The progress in just 3 months is incredible. Рекомендую всем!"</p>
+        <div class="rcard-divider"></div>
+        <div class="rcard-author">
+          <div class="rcard-av" style="background:var(--gold);color:var(--ink);">ОН</div>
+          <div><div class="rcard-name">Ольга Н.</div><div class="rcard-info">Екатеринбург · Kids English</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<p>Hello! My name is Aman.</p>
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left reveal">
+      <h2 class="contact-title">Ready to Start<br>Your Journey?</h2>
+      <p class="contact-sub">Book a free trial lesson and let's find the perfect learning plan for you.</p>
+      <div class="contact-methods">
+        <a href="https://t.me/learnWithMishka" target="_blank" class="cmethod">
+          <div class="cmethod-icon">💬</div>
+          <div>
+            <span class="cmethod-label">Telegram / WhatsApp</span>
+            <div class="cmethod-value">@learnWithMishka</div>
+          </div>
+        </a>
+        <div class="cmethod">
+          <div class="cmethod-icon">🕐</div>
+          <div>
+            <span class="cmethod-label">Availability</span>
+            <div class="cmethod-value">Mon–Sat, 9 AM – 8 PM (Moscow time)</div>
+          </div>
+        </div>
+        <div class="cmethod">
+          <div class="cmethod-icon">🎁</div>
+          <div>
+            <span class="cmethod-label">First Lesson</span>
+            <div class="cmethod-value">Free · No commitment needed</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<p>I help Russian students learn English and Hindi with simple lessons and conversation practice.</p>
+    <div class="contact-form reveal d1">
+      <div class="form-title">📩 Book a Free Trial Lesson</div>
+      <form onsubmit="handleForm(event)" novalidate>
+        <div class="frow">
+          <div class="fg">
+            <label class="fl">Your Name • Ваше имя</label>
+            <input class="fi" type="text" placeholder="e.g. Иван Петров" required/>
+          </div>
+          <div class="fg">
+            <label class="fl">Email Address</label>
+            <input class="fi" type="email" placeholder="your@email.com" required/>
+          </div>
+        </div>
+        <div class="fg">
+          <label class="fl">English Level • Уровень</label>
+          <select class="fsel">
+            <option>A1 – Complete Beginner</option>
+            <option>A2 – Elementary</option>
+            <option>B1 – Intermediate</option>
+            <option>B2 – Upper Intermediate</option>
+            <option>C1 – Advanced</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label class="fl">Your Goal • Ваша цель</label>
+          <textarea class="fta" placeholder="Tell me about your goal — e.g. IELTS exam, job interview, travel, general improvement..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit">🚀 Send Message & Book Free Lesson</button>
+        <div class="form-success" id="formSuccess">✅ Sent! I'll message you on Telegram soon. See you in class!</div>
+      </form>
+    </div>
+  </div>
+</section>
 
-</div>
-
-<div class="lessons">
-
-<div class="card" id="english">
-
-<h2>English Basics</h2>
-
-<p>Hello = Здравствуйте</p>
-
-<p>How are you? = Как дела?</p>
-
-<p>Thank you = Спасибо</p>
-
-</div>
-
-<div class="card" id="hindi">
-
-<h2>Hindi Basics</h2>
-
-<p>नमस्ते (Namaste) = Hello</p>
-
-<p>धन्यवाद = Thank you</p>
-
-<p>आप कैसे हैं? = How are you?</p>
-
-</div>
-
-</div>
-
-<div class="card contact" id="contact">
-
-<h2>Contact</h2>
-
-<p>Email: your-email@example.com</p>
-
-<p>Telegram: @yourtelegram</p>
-
-</div>
-
-</div>
-
+<!-- FOOTER -->
 <footer>
-
-<p>© Learn with Mishka</p>
-
+  <div class="footer-wrap">
+    <div class="footer-top">
+      <a href="#" class="footer-logo">Learn<i class="star">★</i>Mishka</a>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="https://t.me/learnWithMishka" target="_blank">Telegram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Made with ♥ for Russian English learners • Learn with Mishka — Aman Bedi © 2026
+    </div>
+  </div>
 </footer>
 
+<script>
+  // Navbar
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Mobile menu
+  function toggleMobile() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMobile() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+
+  // Form
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-submit');
+    btn.textContent = 'Sending...'; btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formSuccess').style.display = 'block';
+      btn.style.display = 'none';
+      e.target.querySelectorAll('input,select,textarea').forEach(el => el.disabled = true);
+    }, 900);
+  }
+</script>
 </body>
 </html>
