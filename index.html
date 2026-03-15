@@ -63,9 +63,9 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.45rem; font-weight: 900;
       color: var(--ink); text-decoration: none;
-      display: flex; align-items: center; gap: 0.3rem;
+      display: flex; align-items: center; gap: 0;
     }
-    .nav-logo .star { color: var(--coral); font-style: normal; }
+    .nav-logo .with { color: var(--coral); font-style: italic; margin: 0 0.18em; }
     .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
     .nav-links a {
       font-size: .9rem; font-weight: 700;
@@ -433,7 +433,7 @@
       font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 900;
       color: var(--white); text-decoration: none;
     }
-    .footer-logo .star { color: var(--coral); }
+    .footer-logo .with { color: var(--coral); font-style: italic; margin: 0 0.18em; }
     .footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
     .footer-links a { font-size: .82rem; color: rgba(255,255,255,.45); text-decoration: none; font-weight: 600; transition: color .2s; }
     .footer-links a:hover { color: var(--white); }
@@ -472,23 +472,23 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#services" onclick="closeMobile()">Services</a>
-  <a href="#reviews" onclick="closeMobile()">Reviews</a>
-  <a href="#contact" onclick="closeMobile()">Contact</a>
-  <a href="#contact" onclick="closeMobile()" style="color:var(--coral);">Book a Lesson →</a>
+  <a href="#about" onclick="closeMobile()">About / Обо мне</a>
+  <a href="#services" onclick="closeMobile()">Courses / Курсы</a>
+  <a href="#reviews" onclick="closeMobile()">Reviews / Отзывы</a>
+  <a href="#contact" onclick="closeMobile()">Contact / Контакт</a>
+  <a href="#contact" onclick="closeMobile()" style="color:var(--coral);">📩 Book / Записаться →</a>
 </div>
 
 <!-- NAVBAR -->
 <nav id="nav">
   <div class="nav-wrap">
-    <a href="#" class="nav-logo">Learn<i class="star">★</i>Mishka</a>
+    <a href="#" class="nav-logo">Learn<i class="with">with</i>Mishka</a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#contact" class="nav-book">Book a Lesson</a></li>
+      <li><a href="#about">About / Обо мне</a></li>
+      <li><a href="#services">Courses / Курсы</a></li>
+      <li><a href="#reviews">Reviews / Отзывы</a></li>
+      <li><a href="#contact">Contact / Контакт</a></li>
+      <li><a href="#contact" class="nav-book">📩 Book / Записаться</a></li>
     </ul>
     <button class="hamburger" onclick="toggleMobile()">
       <span></span><span></span><span></span>
@@ -500,48 +500,51 @@
 <div class="hero-section-wrap">
   <div id="hero">
     <div class="hero-left">
-      <div class="hero-badge reveal">🇬🇧 Английский онлайн</div>
+      <div class="hero-badge reveal">🇬🇧 English Online · Английский Онлайн</div>
       <h1 class="hero-title reveal d1">
         Speak <span class="w-english">English</span><br>
         with<br>
         <span class="w-conf">Confidence</span>
       </h1>
       <p class="hero-sub reveal d2">
-        Professional English lessons tailored for Russian speakers — from beginners to advanced. Learn with <strong>Mishka (Aman Bedi)</strong> and start speaking from your very first lesson.
+        Professional English lessons for Russian speakers — from beginners to advanced.<br>
+        <span style="color:#6B6B8B;font-size:.92em;">Профессиональные уроки английского для русских — от нуля до уровня Advanced.</span><br><br>
+        Learn with <strong>Mishka (Aman Bedi)</strong> and start speaking from lesson one! /
+        <em>Учитесь с Мишкой и начните говорить уже с первого урока!</em>
       </p>
       <div class="hero-btns reveal d3">
-        <a href="#contact" class="btn-coral">🎁 Free Trial Lesson</a>
-        <a href="#services" class="btn-ghost-dark">View Courses</a>
+        <a href="#contact" class="btn-coral">🎁 Free Trial · Пробный урок</a>
+        <a href="#services" class="btn-ghost-dark">Courses / Курсы</a>
       </div>
       <div class="hero-stats reveal d4">
         <div>
           <div class="hstat-num">500 ₽</div>
-          <div class="hstat-label">Per lesson</div>
+          <div class="hstat-label">Per lesson / За урок</div>
         </div>
         <div style="width:1px;background:rgba(26,31,60,.15);"></div>
         <div>
           <div class="hstat-num">5</div>
-          <div class="hstat-label">Years experience</div>
+          <div class="hstat-label">Years exp. / Лет опыта</div>
         </div>
         <div style="width:1px;background:rgba(26,31,60,.15);"></div>
         <div>
-          <div class="hstat-num">1st</div>
-          <div class="hstat-label">Lesson free</div>
+          <div class="hstat-num">1-й</div>
+          <div class="hstat-label">Lesson free / Урок бесплатно</div>
         </div>
       </div>
     </div>
     <div class="hero-right reveal d2">
       <div class="hero-phone-card">
-        <div class="card-float-badge">🟢 Open for bookings</div>
+        <div class="card-float-badge">🟢 Приём открыт · Open</div>
         <div class="phone-avatar">👩‍🏫</div>
         <div class="phone-name">Mishka</div>
-        <div class="phone-role">Aman Bedi · English Teacher</div>
-        <div class="phone-tag">🇷🇺 → 🇬🇧 Для русских</div>
+        <div class="phone-role">Aman Bedi · Учитель английского</div>
+        <div class="phone-tag">🇷🇺 → 🇬🇧 Специально для русских</div>
         <div class="phone-price-row">
           <div class="phone-price">500₽</div>
-          <div class="phone-per">/ 60 min lesson</div>
+          <div class="phone-per">/ 60 мин · per lesson</div>
         </div>
-        <a href="#contact" class="phone-free">🎁 Book Free Trial</a>
+        <a href="#contact" class="phone-free">🎁 Записаться · Book Free Trial</a>
       </div>
     </div>
   </div>
@@ -552,38 +555,40 @@
   <div class="about-wrap">
     <div>
       <div class="about-pill reveal">ABOUT ME • ОБО МНЕ</div>
-      <h2 class="about-title reveal d1">Passionate<br>English Teacher</h2>
+      <h2 class="about-title reveal d1">Увлечённый<br>учитель английского</h2>
       <p class="about-body reveal d2">
-        I've dedicated <strong style="color:var(--white);">5+ years</strong> to helping Russian students unlock the English language — building real fluency, not just grammar rules.
+        Меня зовут <strong style="color:var(--white);">Аман Беди (Mishka)</strong>. Я посвятил более <strong style="color:var(--white);">5 лет</strong> обучению русских студентов английскому языку — развивая настоящую речь, а не просто знание грамматики.
+        <br><span style="opacity:.55;font-size:.88em;">My name is Aman Bedi (Mishka). I've spent 5+ years helping Russian students build real English fluency.</span>
       </p>
       <p class="about-body reveal d2">
-        My teaching approach combines <span class="hl">modern communicative methods</span> with a deep understanding of the challenges Russian speakers face. From pronunciation to idiomatic expressions, I'll guide you every step of the way.
+        Мой метод сочетает <span class="hl">современные коммуникативные подходы</span> с пониманием трудностей, с которыми сталкиваются русскоговорящие. От произношения до идиом — я рядом на каждом шаге.
+        <br><span style="opacity:.55;font-size:.88em;">My approach combines modern methods with deep understanding of Russian learners' challenges.</span>
       </p>
       <div class="about-cta-row reveal d3">
-        <a href="#contact" class="btn-coral">Book Free Lesson</a>
+        <a href="#contact" class="btn-coral">📩 Записаться · Book Lesson</a>
         <a href="https://t.me/learnWithMishka" target="_blank" class="btn-ghost-white">💬 Telegram</a>
       </div>
     </div>
     <div class="about-cards reveal d2">
       <div class="acard">
         <div class="acard-icon">🎯</div>
-        <div class="acard-title">Goal-Oriented</div>
-        <div class="acard-desc">Lessons tailored to your specific goals — career, travel, exams, or everyday conversation.</div>
+        <div class="acard-title">На вашу цель · Goal-Oriented</div>
+        <div class="acard-desc">Уроки под вашу цель — карьера, путешествия, экзамены или разговорная речь.<br><span style="opacity:.5;font-size:.85em;">Lessons tailored to your goals — career, travel, exams or conversation.</span></div>
       </div>
       <div class="acard">
         <div class="acard-icon">🧠</div>
-        <div class="acard-title">Smart Method</div>
-        <div class="acard-desc">Science-backed teaching techniques that make English stick in your memory faster.</div>
+        <div class="acard-title">Умный метод · Smart Method</div>
+        <div class="acard-desc">Научно обоснованные техники, которые помогают запомнить английский быстрее.<br><span style="opacity:.5;font-size:.85em;">Science-backed techniques that make English stick in memory faster.</span></div>
       </div>
       <div class="acard">
         <div class="acard-icon">💬</div>
-        <div class="acard-title">Real Speaking</div>
-        <div class="acard-desc">Focus on actual conversations from lesson one — no boring drills, just real English.</div>
+        <div class="acard-title">Живая речь · Real Speaking</div>
+        <div class="acard-desc">Настоящие разговоры с первого урока — никакой скучной зубрёжки.<br><span style="opacity:.5;font-size:.85em;">Real conversations from lesson one — no boring drills, just real English.</span></div>
       </div>
       <div class="acard">
         <div class="acard-icon">🗓️</div>
-        <div class="acard-title">Flexible Schedule</div>
-        <div class="acard-desc">Book lessons at times that work for you. Mon–Sat, 9AM – 8PM Moscow time.</div>
+        <div class="acard-title">Гибкое расписание · Flexible</div>
+        <div class="acard-desc">Занятия в удобное для вас время. Пн–Сб, 9:00–20:00 по московскому времени.<br><span style="opacity:.5;font-size:.85em;">Book at times that suit you. Mon–Sat, 9AM–8PM Moscow time.</span></div>
       </div>
     </div>
   </div>
@@ -593,58 +598,58 @@
 <section id="services">
   <div class="section-wrap">
     <div class="section-header reveal">
-      <div class="section-pill">WHAT I OFFER • МОИ УСЛУГИ</div>
-      <h2 class="section-title">Choose Your<br>Learning Path</h2>
-      <p class="section-sub">From your very first word to confident professional communication — I have a programme for every stage.</p>
+      <div class="section-pill">WHAT I OFFER • МОИ КУРСЫ</div>
+      <h2 class="section-title">Выберите свой курс<br><span style="font-size:.6em;opacity:.6;">Choose Your Learning Path</span></h2>
+      <p class="section-sub">От первого слова до уверенного делового общения — у меня есть программа для каждого уровня.<br><span style="font-size:.9em;opacity:.7;">From your very first word to confident professional communication — a programme for every level.</span></p>
     </div>
     <div class="services-grid">
       <div class="scard reveal">
         <div class="scard-top-bar bar-red"></div>
         <span class="scard-emoji">🌱</span>
-        <div class="scard-title">Beginner English</div>
-        <p class="scard-desc">Start from zero! Learn the alphabet, basic vocabulary, essential phrases, and build your confidence in a fun, stress-free way.</p>
-        <div class="scard-price">500 ₽ / lesson</div>
+        <div class="scard-title">Английский с нуля<br><span style="font-size:.7em;color:var(--muted);">Beginner English</span></div>
+        <p class="scard-desc">Начните с нуля! Алфавит, базовые слова, первые фразы — в дружелюбной, спокойной атмосфере.<br><span style="opacity:.6;font-size:.9em;">Start from zero! Alphabet, basic vocabulary, essential phrases in a fun, stress-free way.</span></p>
+        <div class="scard-price">500 ₽ / урок · per lesson</div>
         <span class="scard-badge">A1 – A2</span>
       </div>
       <div class="scard reveal d1">
         <div class="scard-top-bar bar-teal"></div>
-        <span class="scard-emoji">💼</span>
-        <div class="scard-title">Conversational English</div>
-        <p class="scard-desc">Build real fluency for daily life — travel, socialising, and expressing yourself naturally without hesitation.</p>
-        <div class="scard-price">500 ₽ / lesson</div>
+        <span class="scard-emoji">💬</span>
+        <div class="scard-title">Разговорный английский<br><span style="font-size:.7em;color:var(--muted);">Conversational English</span></div>
+        <p class="scard-desc">Говорите свободно в жизни — путешествия, общение, самовыражение без колебаний.<br><span style="opacity:.6;font-size:.9em;">Build real fluency for daily life — travel, socialising, and expressing yourself naturally.</span></p>
+        <div class="scard-price">500 ₽ / урок · per lesson</div>
         <span class="scard-badge">B1 – B2</span>
       </div>
       <div class="scard reveal d2">
         <div class="scard-top-bar bar-gold"></div>
         <span class="scard-emoji">🎓</span>
-        <div class="scard-title">IELTS / TOEFL Prep</div>
-        <p class="scard-desc">Strategic exam preparation with practice tests, scoring tips, and intensive skill training to hit your target band score.</p>
-        <div class="scard-price">500 ₽ / lesson</div>
-        <span class="scard-badge">Exam Focused</span>
+        <div class="scard-title">Подготовка к IELTS/TOEFL<br><span style="font-size:.7em;color:var(--muted);">IELTS / TOEFL Prep</span></div>
+        <p class="scard-desc">Стратегическая подготовка с практическими тестами и советами для достижения нужного балла.<br><span style="opacity:.6;font-size:.9em;">Strategic exam prep with practice tests and scoring tips to hit your target band score.</span></p>
+        <div class="scard-price">500 ₽ / урок · per lesson</div>
+        <span class="scard-badge">Экзамен · Exam</span>
       </div>
       <div class="scard reveal d1">
         <div class="scard-top-bar bar-purple"></div>
         <span class="scard-emoji">🗣️</span>
-        <div class="scard-title">Speaking Club</div>
-        <p class="scard-desc">Small group sessions to practice real conversation, overcome speaking anxiety, and improve your fluency naturally.</p>
-        <div class="scard-price">500 ₽ / session</div>
-        <span class="scard-badge">Group</span>
+        <div class="scard-title">Разговорный клуб<br><span style="font-size:.7em;color:var(--muted);">Speaking Club</span></div>
+        <p class="scard-desc">Групповые занятия для практики живого общения и преодоления языкового барьера.<br><span style="opacity:.6;font-size:.9em;">Small group sessions to practise real conversation and overcome speaking anxiety.</span></p>
+        <div class="scard-price">500 ₽ / занятие · per session</div>
+        <span class="scard-badge">Группа · Group</span>
       </div>
       <div class="scard reveal d2">
         <div class="scard-top-bar bar-pink"></div>
         <span class="scard-emoji">👦</span>
-        <div class="scard-title">Kids English</div>
-        <p class="scard-desc">Engaging, play-based lessons designed for children aged 5–12 using songs, games, and stories to make learning delightful.</p>
-        <div class="scard-price">500 ₽ / lesson</div>
-        <span class="scard-badge">Ages 5–12</span>
+        <div class="scard-title">Английский для детей<br><span style="font-size:.7em;color:var(--muted);">Kids English</span></div>
+        <p class="scard-desc">Игровые уроки для детей 5–12 лет с песнями, играми и сказками — весело и эффективно!<br><span style="opacity:.6;font-size:.9em;">Play-based lessons for children 5–12 using songs, games and stories.</span></p>
+        <div class="scard-price">500 ₽ / урок · per lesson</div>
+        <span class="scard-badge">Возраст 5–12 · Ages 5–12</span>
       </div>
       <div class="scard reveal d3">
         <div class="scard-top-bar bar-green"></div>
         <span class="scard-emoji">✍️</span>
-        <div class="scard-title">Writing & Grammar</div>
-        <p class="scard-desc">Master the structure of English — essays, reports, storytelling, and grammar rules explained clearly with Russian context.</p>
-        <div class="scard-price">500 ₽ / lesson</div>
-        <span class="scard-badge">All Levels</span>
+        <div class="scard-title">Письмо и грамматика<br><span style="font-size:.7em;color:var(--muted);">Writing & Grammar</span></div>
+        <p class="scard-desc">Освойте структуру английского — эссе, отчёты, правила грамматики с понятными объяснениями.<br><span style="opacity:.6;font-size:.9em;">Master English structure — essays, reports, grammar rules explained with Russian context.</span></p>
+        <div class="scard-price">500 ₽ / урок · per lesson</div>
+        <span class="scard-badge">Все уровни · All Levels</span>
       </div>
     </div>
   </div>
@@ -655,13 +660,13 @@
   <div class="section-wrap">
     <div class="section-header reveal">
       <div class="reviews-pill">REVIEWS • ОТЗЫВЫ</div>
-      <h2 class="section-title">What My Students Say</h2>
-      <p class="section-sub">Real feedback from real students who transformed their English.</p>
+      <h2 class="section-title">Что говорят студенты<br><span style="font-size:.6em;opacity:.6;">What My Students Say</span></h2>
+      <p class="section-sub">Настоящие отзывы от реальных студентов, которые изменили свой английский.<br><span style="font-size:.9em;opacity:.7;">Real feedback from real students who transformed their English.</span></p>
     </div>
     <div class="reviews-grid">
       <div class="rcard reveal">
         <div class="rcard-stars">★★★★★</div>
-        <p class="rcard-text">"After 6 months with Mishka, I passed my IELTS with band 7.5! Her exam techniques are brilliant and she always made me feel capable. Огромное спасибо!"</p>
+        <p class="rcard-text">«За 6 месяцев с Мишкой я сдала IELTS на 7.5 баллов! Её техники для экзамена просто блестящие, и она всегда давала уверенность в себе.»<br><span style="opacity:.55;font-size:.88em;">"After 6 months with Mishka, I passed IELTS band 7.5! Her exam techniques are brilliant."</span></p>
         <div class="rcard-divider"></div>
         <div class="rcard-author">
           <div class="rcard-av" style="background:var(--coral);">АП</div>
@@ -670,7 +675,7 @@
       </div>
       <div class="rcard reveal d1">
         <div class="rcard-stars">★★★★★</div>
-        <p class="rcard-text">"I was terrified to speak English at work. Now I lead meetings in English every week! Mishka's speaking club changed everything for me."</p>
+        <p class="rcard-text">«Раньше боялась говорить по-английски на работе. Теперь провожу встречи на английском каждую неделю! Клуб Мишки всё изменил.»<br><span style="opacity:.55;font-size:.88em;">"I was terrified to speak at work. Now I lead meetings in English every week!"</span></p>
         <div class="rcard-divider"></div>
         <div class="rcard-author">
           <div class="rcard-av" style="background:var(--teal);">МС</div>
@@ -679,7 +684,7 @@
       </div>
       <div class="rcard reveal d2">
         <div class="rcard-stars">★★★★★</div>
-        <p class="rcard-text">"My daughter (8 years old) loves her lessons! She sings English songs around the house. The progress in just 3 months is incredible. Рекомендую всем!"</p>
+        <p class="rcard-text">«Моя дочь (8 лет) обожает уроки! Поёт английские песни дома. Прогресс за 3 месяца просто невероятный. Рекомендую всем!»<br><span style="opacity:.55;font-size:.88em;">"My daughter (8) loves her lessons! She sings English songs at home. Incredible progress in 3 months."</span></p>
         <div class="rcard-divider"></div>
         <div class="rcard-author">
           <div class="rcard-av" style="background:var(--gold);color:var(--ink);">ОН</div>
@@ -694,8 +699,8 @@
 <section id="contact">
   <div class="contact-wrap">
     <div class="contact-left reveal">
-      <h2 class="contact-title">Ready to Start<br>Your Journey?</h2>
-      <p class="contact-sub">Book a free trial lesson and let's find the perfect learning plan for you.</p>
+      <h2 class="contact-title">Готовы начать?<br><span style="font-size:.65em;opacity:.65;">Ready to Start Your Journey?</span></h2>
+      <p class="contact-sub">Запишитесь на бесплатный пробный урок — вместе найдём идеальный план обучения.<br><span style="font-size:.9em;">Book a free trial lesson and let's find the perfect learning plan for you.</span></p>
       <div class="contact-methods">
         <a href="https://t.me/learnWithMishka" target="_blank" class="cmethod">
           <div class="cmethod-icon">💬</div>
@@ -707,49 +712,49 @@
         <div class="cmethod">
           <div class="cmethod-icon">🕐</div>
           <div>
-            <span class="cmethod-label">Availability</span>
-            <div class="cmethod-value">Mon–Sat, 9 AM – 8 PM (Moscow time)</div>
+            <span class="cmethod-label">Часы работы · Availability</span>
+            <div class="cmethod-value">Пн–Сб, 9:00–20:00 (Москва · Moscow time)</div>
           </div>
         </div>
         <div class="cmethod">
           <div class="cmethod-icon">🎁</div>
           <div>
-            <span class="cmethod-label">First Lesson</span>
-            <div class="cmethod-value">Free · No commitment needed</div>
+            <span class="cmethod-label">Первый урок · First Lesson</span>
+            <div class="cmethod-value">Бесплатно · Free — без обязательств · No commitment</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="contact-form reveal d1">
-      <div class="form-title">📩 Book a Free Trial Lesson</div>
+      <div class="form-title">📩 Записаться на пробный урок · Book a Free Trial</div>
       <form onsubmit="handleForm(event)" novalidate>
         <div class="frow">
           <div class="fg">
-            <label class="fl">Your Name • Ваше имя</label>
-            <input class="fi" type="text" placeholder="e.g. Иван Петров" required/>
+            <label class="fl">Ваше имя · Your Name</label>
+            <input class="fi" type="text" placeholder="Например: Иван Петров" required/>
           </div>
           <div class="fg">
-            <label class="fl">Email Address</label>
+            <label class="fl">Email / Эл. почта</label>
             <input class="fi" type="email" placeholder="your@email.com" required/>
           </div>
         </div>
         <div class="fg">
-          <label class="fl">English Level • Уровень</label>
+          <label class="fl">Уровень английского · English Level</label>
           <select class="fsel">
-            <option>A1 – Complete Beginner</option>
-            <option>A2 – Elementary</option>
-            <option>B1 – Intermediate</option>
-            <option>B2 – Upper Intermediate</option>
-            <option>C1 – Advanced</option>
+            <option>A1 – Полный новичок · Complete Beginner</option>
+            <option>A2 – Начальный · Elementary</option>
+            <option>B1 – Средний · Intermediate</option>
+            <option>B2 – Выше среднего · Upper Intermediate</option>
+            <option>C1 – Продвинутый · Advanced</option>
           </select>
         </div>
         <div class="fg">
-          <label class="fl">Your Goal • Ваша цель</label>
-          <textarea class="fta" placeholder="Tell me about your goal — e.g. IELTS exam, job interview, travel, general improvement..."></textarea>
+          <label class="fl">Ваша цель · Your Goal</label>
+          <textarea class="fta" placeholder="Расскажите о вашей цели — например: экзамен IELTS, собеседование, путешествие, общее улучшение... / Tell me about your goal — e.g. IELTS, job interview, travel..."></textarea>
         </div>
-        <button type="submit" class="btn-submit">🚀 Send Message & Book Free Lesson</button>
-        <div class="form-success" id="formSuccess">✅ Sent! I'll message you on Telegram soon. See you in class!</div>
+        <button type="submit" class="btn-submit">🚀 Отправить заявку · Send & Book Free Lesson</button>
+        <div class="form-success" id="formSuccess">✅ Отправлено! Напишу вам в Telegram скоро. До встречи на уроке! · Sent! See you in class!</div>
       </form>
     </div>
   </div>
@@ -759,17 +764,18 @@
 <footer>
   <div class="footer-wrap">
     <div class="footer-top">
-      <a href="#" class="footer-logo">Learn<i class="star">★</i>Mishka</a>
+      <a href="#" class="footer-logo">Learn<i class="with">with</i>Mishka</a>
       <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">Обо мне · About</a>
+        <a href="#services">Курсы · Courses</a>
+        <a href="#reviews">Отзывы · Reviews</a>
+        <a href="#contact">Контакт · Contact</a>
         <a href="https://t.me/learnWithMishka" target="_blank">Telegram</a>
       </div>
     </div>
     <div class="footer-bottom">
-      Made with ♥ for Russian English learners • Learn with Mishka — Aman Bedi © 2026
+      Сделано с ♥ для русских студентов · Made with ♥ for Russian English learners<br>
+      Learn with Mishka — Aman Bedi © 2026
     </div>
   </div>
 </footer>
